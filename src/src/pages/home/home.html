@@ -1,65 +1,18 @@
 <ion-header>
-	<ion-navbar color="primary">
-		<button ion-button menuToggle>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-		<ion-title>{{ 'PAGES.HOME' | translate }}</ion-title>
-	</ion-navbar>
+        <ion-title>{{ 'PAGES.HOME' | translate }}</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-	<h2>Welcome to HomePage!</h2>
 
-	<p>If you want to login, please use <strong>admin@mail.com</strong> as email and <strong>admin1234</strong> as password.</p>
-
-	<p>HomePage is a <em>BasePage</em>, so users can enter this page without being logged in. 
-	
-	<em>BasePage</em> (and thus all the pages) includes three main properties:</p>
-
-	<ul>
-		<li><strong>domain</strong>: Custom domain instances</li>
-		<li><strong>ionic</strong>: Ionic controller instances</li>
-		<li><strong>helpers</strong>: Some common methods like showing an alert or a loading message</li>
-	</ul>
-
-	<p>In this page you can find some examples of how to use these properties.</p>
-
-	<hr margin-top>
-
-	<ion-row>
-		<ion-col>
-			<p>The <em>redirectTo(...)</em> method will check if the user is allowed to enter to the target page, and if not, the Login
-				page will be shown. After logging in, the user will be redirected to the target page.</p>
-			<button (click)="redirectToUserBasePage()" ion-button>Open UserBasePage</button>
-		</ion-col>
-	</ion-row>
-
-	<hr margin-top>
-
-	<ion-row>
-		<ion-col>
-			<p>The <em>showLoadingMessage(...)</em> method:</p>
-			<button (click)="showLoading()" ion-button>Show Loading</button>
-		</ion-col>
-	</ion-row>
-
-	<hr margin-top>
-
-	<ion-row>
-		<ion-col>
-			<p>The <em>showBasicAlertMessage(...)</em> method:</p>
-			<button (click)="showAlert()" ion-button>Show Basic Alert</button>
-		</ion-col>
-	</ion-row>
-
-	<hr margin-top>
-
-	<ion-row>
-		<ion-col>
-			<p>The <em>showAlertMessageWithCallbacks(...)</em> method:</p>
-			<button (click)="showAlertWithCallback()" ion-button>Show Alert with Callback</button>
-		</ion-col>
-	</ion-row>
-
+    <ion-list *ngFor="let activity of activities">
+        <button ion-item (click)="selectActivity(activity)">
+            {{ activity.name }}
+        </button>
+    </ion-list>
 
 </ion-content>

@@ -1,0 +1,36 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add Workout</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<form (ngSubmit)="logWorkout()" [formGroup]="formGroup">
+		<ion-row class="form-container">
+			<ion-col>
+				<ion-list inset>
+
+					<!-- Activity -->
+					<ion-item  class="form-input">
+						<ion-label color="placeholder" floating>Activity</ion-label>
+						<ion-input formControlName="activityId" type="text"></ion-input>
+					</ion-item>
+					<!--<error-message [submitted]="submitAttempt" [name]="'email address'" [control]="signInForm.get('email')"></error-message>-->
+
+					<!-- Start Time -->
+					<ion-item  class="form-input">
+						<ion-label color="placeholder" floating>Start</ion-label>
+						<ion-input formControlName="startTime" type="text"></ion-input>
+					</ion-item>
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+
+		<button ion-button block>Add Workout</button>
+
+	</form>
+
+</ion-content>

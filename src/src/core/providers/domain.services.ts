@@ -14,6 +14,7 @@ import { TOKEN_CONFIG, AppConfig } from '../../app/app.config';
 
 // Project services
 import { ActivityService } from "../../providers/activity-service";
+import { WorkoutService } from "../../providers/workout-service";
 
 export class DomainServices {
 
@@ -24,6 +25,7 @@ export class DomainServices {
     private _config: AppConfig;
 
     private _activityService: ActivityService;
+    private _workoutService: WorkoutService;
 
     constructor(private _injector: Injector) {}
 
@@ -73,5 +75,13 @@ export class DomainServices {
             this._activityService = this._injector.get(ActivityService);
         }
         return this._activityService;
+    }
+
+    // WorkoutService
+    public get workoutService(): WorkoutService {
+        if (!this._workoutService) {
+            this._workoutService = this._injector.get(WorkoutService);
+        }
+        return this._workoutService;
     }
 }

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.bananatracks.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>OJSIonicApp</name>
-    <description>OJS Ionic2 App Template</description>
-    <author email="info@orangejetpack.com" href="https://www.orangejetpack.com/">Orange Jetpack Studios</author>
+    <name>Banana Tracks</name>
+    <description>Daily Workout Logger</description>
+    <author email="andy.mehalick@orangejetpack.com" href="https://andy.mehalick.com/">Andy Mehalick</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />

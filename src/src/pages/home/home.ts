@@ -4,21 +4,32 @@ import { Component, Injector } from '@angular/core';
 // Pages
 import { BasePage } from '../../core/pages/base';
 import { MyAccountPage } from '../my-account/my-account';
+import { AddWorkoutPage } from '../add-workout/add-workout';
+
+import { Activity } from '../../providers/activity-service';
 
 @Component({
 	selector: 'page-home',
 	templateUrl: 'home.html'
 })
 export class HomePage extends BasePage {
-	constructor(public injector: Injector) {
+	
+    public activities: Array<Activity>
+    
+    constructor(public injector: Injector) {
 		super(injector);
 	}
 
-    private ionViewDidEnter(): void {
+    public ionViewDidEnter(): void {
+
+        if (this.activities && this.activities.length > 0) {
+            return;
+        }
+
         this.helpers.showLoadingMessage().then(() => {
             this.domain.activityService.getAll().subscribe(
                 (results: any) => {
-                    console.log(results);
+                    this.activities = results;
                     this.helpers.hideLoadingMessage();
                 },
                 (error) => {
@@ -28,6 +39,10 @@ export class HomePage extends BasePage {
                     });
                 });
         });
+    }
+
+    public selectActivity(activity: Activity): void {
+        this.helpers.redirectTo(AddWorkoutPage, false, { 'activity': activity });
     }
 
 	public showLoading(): void {

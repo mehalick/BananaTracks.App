@@ -14,7 +14,7 @@ export class Activity {
 export class ActivityService {
 
     constructor(private http: HttpClientService) {
-        console.log('Hello ActivityService Provider');
+
     }
 
     public getAll(): Observable<Array<Activity>> {

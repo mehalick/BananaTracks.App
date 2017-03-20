@@ -22,6 +22,7 @@ import { MyAccountPage } from '../pages/my-account/my-account';
 import { LogInPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { PasswordResetPage } from '../pages/password-reset/password-reset';
+import { AddWorkoutPage } from '../pages/add-workout/add-workout';
 
 // Services
 import { HttpClientService } from '../providers/http-client-service';
@@ -30,6 +31,8 @@ import { EventService } from '../providers/event-service';
 import { LanguageService } from '../providers/language-service';
 import { SideMenuService } from '../providers/side-menu-service';
 import { NetworkService } from '../providers/network-service';
+import { ActivityService } from '../providers/activity-service';
+import { WorkoutService } from '../providers/workout-service';
 
 // Utils
 import { MultiLevelSideMenuComponent } from '../utils/multi-level-side-menu/multi-level-side-menu';
@@ -39,9 +42,6 @@ import { TOKEN_CONFIG, APP_CONFIG } from '../app/app.config';
 
 // Custom modules
 import { ValidationModule } from '../utils/validation/validation.module';
-
-// Project services
-import { ActivityService } from '../providers/activity-service';
 
 // Ng2 Translate Loader
 export function createTranslateLoader(http: Http) {
@@ -58,6 +58,7 @@ export function createTranslateLoader(http: Http) {
 		LogInPage,
 		RegisterPage,
 		PasswordResetPage,
+        AddWorkoutPage,
 
 		// Utils
 		MultiLevelSideMenuComponent
@@ -82,7 +83,8 @@ export function createTranslateLoader(http: Http) {
 		MyAccountPage,
 		LogInPage,
 		RegisterPage,
-		PasswordResetPage
+		PasswordResetPage,
+        AddWorkoutPage
 	],
 	providers: [
 		Storage,
@@ -93,6 +95,7 @@ export function createTranslateLoader(http: Http) {
 		SideMenuService,
 		NetworkService,
         ActivityService,
+        WorkoutService,
 		{ provide: TOKEN_CONFIG, useValue: APP_CONFIG },
 		{ provide: ErrorHandler, useClass: IonicErrorHandler }
 	]
