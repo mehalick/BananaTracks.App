@@ -1,0 +1,189 @@
+// Global styles
+// --------------
+// 01. Typography
+// 02. Helpers
+// 03. Main components
+// 04. Custom Arabic styles
+
+/* ------------------------------------ */
+/* 01 Typography                        */
+/* ------------------------------------ */
+
+/* ------------------------------------ */
+/* 02 Helpers                           */
+/* ------------------------------------ */
+.vertical-center {
+    .fixed-content,
+    .scroll-content {
+        display: flex;
+        align-items: center;
+    }
+}
+
+ion-toast.offline .toast-wrapper{
+    background-color: map-get($colors, red);
+}
+ion-toast.online .toast-wrapper{
+    background-color: map-get($colors, green);
+}
+
+// Android Workaround to hide android's default validation colors
+// ---------------------------------
+@mixin no-validation-colors {
+    ion-item .item-inner,
+    ion-item.item-md.item-input.input-has-focus .item-inner,
+    ion-item.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner,
+    ion-item.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+        border-bottom: none !important;
+        box-shadow: none;
+    }
+}
+
+// Main Logo
+// ---------------------------------
+@mixin logo($size, $padding) {
+    ion-row.logo-container {
+        padding: $padding;
+    }
+    div.logo {
+        background-image: url(../assets/img/logo.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center, center;
+        width: 100%;
+        height: $size;
+        background-position: center, center;
+    }
+}
+
+// Inputs with background color
+// ---------------------------------
+@mixin input-with-color-background($color) {
+
+    @include no-validation-colors;
+
+    ion-item.form-input.item.item-block {
+        background-color: map-get($colors, #{$color});
+
+        &:not(:first-child) {
+            margin-top: 16px;
+        }
+    }
+
+    ion-row.two-items-container {
+        margin-top: 16px;
+
+        ion-col:first-child {
+            padding: 0 8px 0 0;
+        }
+        ion-col:last-child {
+            padding: 0 0 0 8px;
+        }
+    }
+
+    ion-item.item-radio,
+    ion-item.item-datetime {
+        background-color: map-get($colors, #{$color});
+        padding-left: 10px;
+
+        ion-label {
+            color: #999;
+        }
+    }
+
+    ion-item.item-datetime {
+        margin-top: 16px;        
+    }
+
+    /* Remove input lines on iOS */
+    .list-ios[inset] .item {
+        border-bottom: none;
+    }
+
+    /* Remove input lines on windows phone */
+    .text-input-wp {
+        border: none;
+    }
+}
+
+// Single button container
+// ---------------------------------
+@mixin simple-button-container($margin) {
+    ion-row.simple-btn-container {
+        margin: $margin;
+
+        ion-col {        
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+// Double button container
+// ---------------------------------
+@mixin double-button-container($margin) {
+    ion-row.double-btn-container {
+        margin: $margin;
+
+        ion-col:nth-child(1) {
+            padding-left: 0;
+            padding-right: 5px;
+        }
+        ion-col:nth-child(2) {
+            padding-left: 5px;
+            padding-right: 0;
+        }
+    }
+}
+
+// Centered text
+// ---------------------------------
+@mixin centered-text($margin) {
+    .centered {
+        margin: $margin;
+        text-align: center;
+    }
+}
+
+/* ------------------------------------ */
+/* 03 Main components                   */
+/* ------------------------------------ */
+
+form {
+    width: 100%;
+}
+
+div.error-message {
+    color: map-get($colors, danger);
+    margin-top: 5px;
+}
+
+div.success-message {
+    color: map-get($colors, green);
+    margin-top: 5px;
+}
+
+/* ------------------------------------ */
+/* 04 Custom Arabic styles              */
+/* ------------------------------------ */
+
+@mixin arabic-styles() {
+    ion-app.lang-ar {
+        direction: rtl;
+
+        ion-row.double-btn-container {
+            margin-top: 16px;
+
+            ion-col:nth-child(1) {
+                padding-left: 5px;
+                padding-right: 0;
+            }
+            ion-col:nth-child(2) {
+                padding-left: 0;
+                padding-right: 5px;
+            }
+        } 
+    }
+}
+
+@include arabic-styles();

@@ -1,0 +1,33 @@
+<ion-list no-margin no-lines>
+    <template ngFor let-option [ngForOf]="options" let-i="index">
+
+        <!-- It is a simple option -->
+        <template [ngIf]="!option.subItems">
+            <ion-item detail-none (click)="select(option)">
+                <ion-icon *ngIf="option.iconName" [name]="option.iconName" item-left></ion-icon>
+                {{ option.displayName | translate }}
+            </ion-item>
+        </template>
+
+        <!-- It has nested options -->
+        <template [ngIf]="option.subItems && option.subItems.length > 0">
+
+            <ion-list no-margin class="accordion-menu">
+                <ion-item detail-none class="header" tappable (click)="toggleItemOptions($event, option.subItems.length)">
+                    <ion-icon [id]="'header-icon-' + i" class="header-icon" [name]="option.iconName || defaultArrowIconName" item-left></ion-icon>
+                    {{ option.displayName | translate }}
+                </ion-item>
+                <div [id]="'sub-item-' + i" class="options">
+                    <template ngFor let-item [ngForOf]="option.subItems">
+                        <ion-item detail-none (click)="select(item)">
+                            <ion-icon *ngIf="item.iconName" [name]="item.iconName" item-left></ion-icon>
+                            {{ item.displayName | translate }}
+                        </ion-item>
+                    </template>
+                </div>
+            </ion-list>
+
+        </template>
+
+    </template>
+</ion-list>

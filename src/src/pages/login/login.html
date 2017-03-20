@@ -1,0 +1,51 @@
+<ion-content padding class="vertical-center">
+	<form [formGroup]="signInForm">
+
+		<!-- Logo -->
+		<ion-row class="logo-container">
+			<div class="logo"></div>
+		</ion-row>
+
+		<ion-row class="form-container">
+			<ion-col>
+				<ion-list inset>
+
+					<!-- Email -->
+					<ion-item class="form-input">
+						<ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+					</ion-item>
+					<error-message [submitted]="submitAttempt" [name]="'email address'" [control]="signInForm.get('email')"></error-message>
+
+					<!-- Password -->
+					<ion-item class="form-input">
+						<ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+					</ion-item>
+					<error-message [submitted]="submitAttempt" [name]="'password'" [control]="signInForm.get('password')"></error-message>
+
+					<ion-row class="double-btn-container">
+						<ion-col>
+							<button color="danger" (click)="goBack()" ion-button full>{{ 'CANCEL' | translate }}</button>
+						</ion-col>
+						<ion-col>
+							<button (click)="signIn()" ion-button full>{{ 'LOG_IN' | translate }}</button>
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="centered">
+						<ion-col>
+							<span (click)="register()"><strong>{{ 'SIGN_IN.CREATE_ACCOUNT' | translate }}</strong></span>
+						</ion-col>
+					</ion-row>
+
+					<ion-row class="centered">
+						<ion-col>
+							<span (click)="resetPassword()">{{ 'SIGN_IN.RESET_PASSWORD' | translate }}</span>
+						</ion-col>
+					</ion-row>
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+
+	</form>
+</ion-content>

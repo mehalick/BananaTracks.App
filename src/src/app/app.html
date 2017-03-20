@@ -1,0 +1,34 @@
+<ion-menu persistent="true" id="left-menu" side="left" [content]="content">
+	<ion-header no-border>
+		<ion-toolbar color="primary">
+			<ion-title>Menu</ion-title>
+		</ion-toolbar>
+	</ion-header>
+
+	<ion-content>
+
+		<!-- Side Menu options -->
+		<multi-level-side-menu [accordionMode]="true" [options]="availableOptions" (selectOption)="selectOption($event)"></multi-level-side-menu>
+	
+	</ion-content>
+
+</ion-menu>
+
+<ion-menu persistent="true" id="right-menu" side="right" [content]="content">
+	<ion-header no-border>
+		<ion-toolbar color="primary">
+			<ion-title>Menu</ion-title>
+		</ion-toolbar>
+	</ion-header>
+	<ion-content>
+
+		
+		<!-- Side Menu options -->
+		<multi-level-side-menu [accordionMode]="true" [options]="availableOptions" (selectOption)="selectOption($event)"></multi-level-side-menu>
+	
+	</ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

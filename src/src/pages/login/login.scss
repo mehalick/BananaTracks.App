@@ -1,0 +1,23 @@
+page-login {
+
+    // Logo and logo container: $logoWidth and $containerPadding
+    @include logo(150px, 0 21px);
+
+    // Inputs: $colorName
+    @include input-with-color-background('light');
+
+    // Need password and register texts: $margin
+    @include centered-text(24px auto);
+
+    // Buttons: $margin
+    @include double-button-container(16px 0);
+
+}
+
+// Arabic language styles
+// ---------------------------------------------
+ion-app.lang-ar { 
+    page-login  { 
+
+    }
+}

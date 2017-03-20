@@ -1,0 +1,34 @@
+page-register {
+
+
+    // Logo and logo container: $logoWidth and $containerPadding
+    @include logo(150px, 0 21px);
+
+    // Inputs: $colorName
+    @include input-with-color-background('light');
+
+    // Need password and register texts: $margin
+    @include centered-text(16px auto);
+
+    // Buttons: $margin
+    @include double-button-container(16px 0);
+
+    // Spinner icon
+    .spinner {
+        animation: spin 1s infinite linear;
+        -webkit-animation: spin 1s infinite linear;
+    }
+    
+    @keyframes spin {
+        0%   {-webkit-transform: rotate(0deg)}
+        100% {-webkit-transform: rotate(360deg)}
+    }
+}
+
+// Arabic language styles
+// ---------------------------------------------
+ion-app.lang-ar { 
+    page-register  { 
+        
+    }
+}

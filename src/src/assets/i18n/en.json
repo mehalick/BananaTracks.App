@@ -1,0 +1,57 @@
+{
+    "LANGUAGE": "العربية",
+    "LOG_IN": "Log In",
+    "LOG_OUT": "Log Out",
+    "ERROR": "Error",
+    "OK": "Ok",
+    "CANCEL": "Cancel",
+    "LOADING": "Loading",
+    "SUCCESS": "Success",
+    "ONLINE": "Your internet connection is online again.",
+    "OFFLINE": "Your internet connection appears to be offline. Data integrity is not guaranteed",
+    "TESTING": {
+        "LOADING_TEXT": "Loading...",
+        "ALERT_TITLE": "Alert Title",
+        "ALERT_MESSAGE": "Alert Message",
+        "ALERT_BUTTON": "Ok",
+        "MENU_WITH_ICONS": "Options with icons",
+        "MENU_WITHOUT_ICONS": "Options without icons"
+    },
+    "PAGES": {
+        "HOME": "Home",
+        "MY_ACCOUNT": "My account"
+    },
+    "SIGN_IN": {
+        "RESET_PASSWORD": "Reset your Password",
+        "CREATE_ACCOUNT": "Create an Account"
+    },
+    "REGISTER_PAGE": {
+        "SUCCESS_MESSAGE": "Your account has been successfully created."
+    },
+    "PASSWORD-RESET": {
+        "TEXT": "If you have lost or forgotten your password please enter your email address in the form below and we will send you instructions on how to reset your password.",
+        "SEND_INSTRUCTIONS": "Send instructions",
+        "RESULT": "Your password has been sent"
+    },
+    "FIELDS": {
+        "NAME": "Name",
+        "FIRST_NAME": "First Name",
+        "LAST_NAME": "Last Name",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "CONFIRM_PASSWORD": "Confirm password",
+        "USER_NAME": "Username"
+    },
+    "VALIDATIONS": {
+        "REQUIRED": "Please enter your {{ value }}",
+        "INVALID_EMAIL_ADDRESS": "Invalid email address",
+        "INVALID_PASSWORD": "Invalid password. Password must be at least six characters long",
+        "PASSWORDS_DO_NOT_MATCH": "Your password and confirmation password do not match",
+        "MIN_LENGTH": "Minimum length is {{ value }}",
+        "MAX_LENGTH": "Maximum length is {{ value }}",
+        "INVALID_FIELD": "Invalid field",
+        "USERNAME_TAKEN": "The username is not available",
+        "INVALID_USERNAME": "Please enter a username containing only letters and numbers.",
+        "VALID_USERNAME": "Great username!"
+    }
+}
