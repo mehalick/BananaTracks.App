@@ -15,4 +15,21 @@
         </button>
     </ion-list>
 
+    <table class="ui celled table unstackable" *ngIf="isLoaded">
+        <thead>
+            <tr>
+                <th>Activity</th>
+                <th>Start</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let workout of workouts">
+                <td>{{ workout.activity.name }}</td>
+                <td>{{ workout.startUtc }}</td>
+                <td>{{ workout.duration }}</td>
+            </tr>
+        </tbody>
+    </table>
+
 </ion-content>

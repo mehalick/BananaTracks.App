@@ -1,12 +1,15 @@
 // Angular references
 import { Component, Injector } from '@angular/core';
+import {Observable} from 'rxjs/Observable';
 
 // Pages
 import { BasePage } from '../../core/pages/base';
 import { MyAccountPage } from '../my-account/my-account';
 import { AddWorkoutPage } from '../add-workout/add-workout';
 
+// Services
 import { Activity } from '../../providers/activity-service';
+import { Workout } from '../../providers/workout-service';
 
 @Component({
 	selector: 'page-home',
@@ -14,7 +17,9 @@ import { Activity } from '../../providers/activity-service';
 })
 export class HomePage extends BasePage {
 	
-    public activities: Array<Activity>
+    public isLoaded = false;
+    public activities: Array<Activity>;
+    public workouts: Array<Workout>;
     
     constructor(public injector: Injector) {
 		super(injector);
@@ -22,22 +27,26 @@ export class HomePage extends BasePage {
 
     public ionViewDidEnter(): void {
 
-        if (this.activities && this.activities.length > 0) {
-            return;
-        }
-
         this.helpers.showLoadingMessage().then(() => {
-            this.domain.activityService.getAll().subscribe(
-                (results: any) => {
-                    this.activities = results;
-                    this.helpers.hideLoadingMessage();
-                },
-                (error) => {
-                    this.helpers.hideLoadingMessage().then(() => {
-                        let errorMessage = this.helpers.getErrorMessage(error);
-                        this.helpers.showBasicAlertMessage('ERROR', errorMessage);
-                    });
-                });
+
+            console.log('Loading activities and workouts...');
+            let t0 = performance.now();
+
+            Observable.forkJoin(
+                this.domain.activityService.getAll(),
+                this.domain.workoutService.getRecent()
+            ).subscribe(data => {
+                
+                this.activities = data[0];
+                this.workouts = data[1].reverse();
+
+                let t1 = performance.now();                 
+                console.log(`Loading complete in ${t1 - t0}ms.`);
+
+                this.isLoaded = true;
+
+                this.helpers.hideLoadingMessage();
+            });
         });
     }
 

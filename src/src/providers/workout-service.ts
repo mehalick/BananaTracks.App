@@ -4,7 +4,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 
 import { HttpClientService } from '../providers/http-client-service';
-
 import { Activity } from '../providers/activity-service';
 
 export class Workout {
@@ -25,6 +24,10 @@ export class WorkoutService {
 
     public getAll(): Observable<Array<Workout>> {
         return this.http.get('workouts').map(res => res.json());
+    }
+
+    public getRecent(): Observable<Array<Workout>> {
+        return this.http.get('workouts/recent').map(res => res.json());
     }
 
     public addWorkout(activityId: string, startTime: Date): Observable<Workout> {
